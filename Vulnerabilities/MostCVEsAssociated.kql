@@ -1,0 +1,3 @@
+DeviceTvmSoftwareVulnerabilities
+| summarize CVE_Count = dcount(CveId), CVE_List = make_set(CveId) by DeviceName
+| sort by CVE_Count desc

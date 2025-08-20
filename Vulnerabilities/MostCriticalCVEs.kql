@@ -1,0 +1,4 @@
+DeviceTvmSoftwareVulnerabilities
+| where VulnerabilitySeverityLevel == "Critical"
+| summarize CriticalCVE_Count = dcount(CveId), CriticalCVE_List = make_set(CveId) by DeviceName
+| sort by CriticalCVE_Count desc

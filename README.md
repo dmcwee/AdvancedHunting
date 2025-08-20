@@ -4,3 +4,4 @@ This repository contains some sample queries I have created and used over time w
 
 * [UsefulQueries](./UsefulQueries/README.md)
 * [Detect Account Creation](./CreateAccount/README.md)
+* [Vulnerability Queries](./Vulnerabilities/README.md)
