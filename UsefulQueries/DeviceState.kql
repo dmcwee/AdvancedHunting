@@ -7,6 +7,7 @@ DeviceInfo
             | extend Scans = tostring(AdditionalFieldsParsed.AvScanResults)
             | extend AvScanResults = parse_json(Scans)
             | project DeviceId,
+                    AvMode = iff(AdditionalFields.AvMode == 1, "Passive", "Active"),
                     AvPlatformVersion = tostring(AdditionalFieldsParsed.AvPlatformVersion),
                     AvEngineVersion = tostring(AdditionalFieldsParsed.AvEngineVersion),
                     AvSignatureVersion = tostring(AdditionalFieldsParsed.AvSignatureVersion),
@@ -26,4 +27,4 @@ DeviceInfo
                     Timestamp, 
                     LastSeenTime
         ) on DeviceId
-        | project Timestamp, LastSeenTime, DeviceName, OnboardingStatus, SensorHealthState, OSDistribution, OSVersionInfo, DeviceId, AvPlatformVersion, AvEngineVersion, AvSignatureVersion, AvSignatureUpdateTime, AvEngineUpdateTime, AvPlatformUpdateTime, AvIsSignatureUptodate, AvIsEngineUptodate, AvIsPlatformUptodate, AdditionalFields, ClientVersion
+        | project Timestamp, LastSeenTime, DeviceName, OnboardingStatus, SensorHealthState, OSDistribution, OSVersionInfo, DeviceId, AvMode, AvPlatformVersion, AvEngineVersion, AvSignatureVersion, AvSignatureUpdateTime, AvEngineUpdateTime, AvPlatformUpdateTime, AvIsSignatureUptodate, AvIsEngineUptodate, AvIsPlatformUptodate, AdditionalFields, ClientVersion
